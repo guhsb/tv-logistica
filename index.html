@@ -158,7 +158,9 @@ $('fundo').addEventListener('click',e=>{if(e.target===$('fundo'))$('fundo').clas
 document.addEventListener('keydown',e=>{if(e.key==='Escape')$('fundo').classList.remove('on');});
 
 async function carregar(){
-  try{ D=EXEMPLO?exemploDados():await TV.buscar('logistica',carregar); mostrar(); $('msg').textContent=EXEMPLO?'dados de exemplo':''; }
+  try{ const j=EXEMPLO?exemploDados():await TV.buscar('logistica',carregar);
+    if(!j||!j.faturado||!j.periodo||!Array.isArray(j.abertos)) throw new Error('a função paineis-tv ainda não devolve o tipo logistica no formato do README');
+    D=j; mostrar(); $('msg').textContent=EXEMPLO?'dados de exemplo':''; }
   catch(e){ $('msg').textContent='Não consegui atualizar: '+(e&&e.message||e); }
 }
 const stage=$('stage');
