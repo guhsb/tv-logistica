@@ -107,7 +107,7 @@ html,body{width:100%;height:100%}
 </div>
 <div id="fundo"><div id="caixa"><div class="top"><h3 id="mt"></h3><button id="fechar" type="button">Fechar ✕</button></div><div class="sub" id="ms"></div><div class="tb" id="mb"></div></div></div>
 </div>
-<script src="config.js"></script>
+<script src="config.js?v=3"></script>
 <script src="login.js"></script>
 <script>
 const EXEMPLO=/[?&]exemplo\b/.test(location.search);
@@ -159,7 +159,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')$('fundo').classList
 
 async function carregar(){
   try{ const j=EXEMPLO?exemploDados():await TV.buscar('logistica',carregar);
-    if(!j||!j.faturado||!j.periodo||!Array.isArray(j.abertos)) throw new Error('a função paineis-tv ainda não devolve o tipo logistica no formato do README');
+    if(!j||!j.faturado||!j.periodo||!Array.isArray(j.abertos)) throw new Error('a função chamada ('+String(window.FUNCAO_URL||'sem endereço').split('/').pop()+') não devolve o formato da logística. Confira o config.js (deve terminar em tvlogistica).');
     D=j; mostrar(); $('msg').textContent=EXEMPLO?'dados de exemplo':''; }
   catch(e){ $('msg').textContent='Não consegui atualizar: '+(e&&e.message||e); }
 }

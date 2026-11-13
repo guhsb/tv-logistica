@@ -3,7 +3,7 @@
 Painel de logística para a TV: vendas faturadas do dia, demais operações, total faturado e, em quadradinhos, os pedidos em aberto por dia (só os sem motivo). Clicando no dia, aparece a lista dos pedidos.
 
 - `index.html`: a tela. Abra com `?exemplo` no final do endereço para ver com dados de mentira.
-- `login.js`: igual ao do tv-freedom (login guardado só no navegador). `config.js`: aponta para a função de logística no Supabase (`quick-endpoint`).
+- `login.js`: igual ao do tv-freedom (login guardado só no navegador). `config.js`: aponta para a função de logística no Supabase (`tvlogistica`).
 - `supabase/paineis-logistica/index.ts`: código da função (não vai para o GitHub Pages; é colado no Supabase).
 - `logo.png`: logo oficial.
 
@@ -17,7 +17,7 @@ O código está em `supabase/paineis-logistica/index.ts`. Ela entra no site de r
 Como criar no Supabase (projeto suporte-freedom):
 
 1. Edge Functions → **Deploy a new function** → **Via Editor**.
-2. Nome: `paineis-logistica` (se o Supabase criar com outro nome, como `quick-endpoint`, o endereço usa esse nome; ajuste o `config.js`). Apague o código de exemplo e cole o conteúdo de `supabase/paineis-logistica/index.ts`. Clique em **Deploy**.
+2. Nome: `paineis-logistica` (se o Supabase criar com outro nome, como `tvlogistica`, o endereço usa esse nome; ajuste o `config.js`). Apague o código de exemplo e cole o conteúdo de `supabase/paineis-logistica/index.ts`. Clique em **Deploy**.
 3. Abra a função criada, vá em **Settings** e **desligue "Verify JWT"** (a TV não manda token do Supabase; sem isso dá erro 401).
 4. O login usado na TV precisa ter acesso à **Logística** no site de relatórios.
 
